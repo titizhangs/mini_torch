@@ -1,0 +1,20 @@
+[
+{
+  "directory": "/home/ti_ti_/workspace/my_torch/build",
+  "command": "/usr/bin/c++  -I/home/ti_ti_/workspace/my_torch/src -g -O0 -std=gnu++17 -o CMakeFiles/my_torch.dir/src/main.cpp.o -c /home/ti_ti_/workspace/my_torch/src/main.cpp",
+  "file": "/home/ti_ti_/workspace/my_torch/src/main.cpp",
+  "output": "CMakeFiles/my_torch.dir/src/main.cpp.o"
+},
+{
+  "directory": "/home/ti_ti_/workspace/my_torch/build",
+  "command": "/usr/bin/c++  -I/home/ti_ti_/workspace/my_torch/src -g -O0 -std=gnu++17 -o CMakeFiles/my_torch.dir/src/Tensor.cpp.o -c /home/ti_ti_/workspace/my_torch/src/Tensor.cpp",
+  "file": "/home/ti_ti_/workspace/my_torch/src/Tensor.cpp",
+  "output": "CMakeFiles/my_torch.dir/src/Tensor.cpp.o"
+},
+{
+  "directory": "/home/ti_ti_/workspace/my_torch/build",
+  "command": "/usr/bin/c++  -I/home/ti_ti_/workspace/my_torch/src -g -O0 -std=gnu++17 -o CMakeFiles/my_torch.dir/src/he.cpp.o -c /home/ti_ti_/workspace/my_torch/src/he.cpp",
+  "file": "/home/ti_ti_/workspace/my_torch/src/he.cpp",
+  "output": "CMakeFiles/my_torch.dir/src/he.cpp.o"
+}
+]

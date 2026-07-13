@@ -129,53 +129,53 @@ my_torch/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_torch.dir/build.make CMakeFiles/my_torch.dir/build
 .PHONY : my_torch/fast
 
-src/Tensor.o: src/Tensor.cpp.o
-.PHONY : src/Tensor.o
+src/layers.o: src/layers.cpp.o
+.PHONY : src/layers.o
 
 # target to build an object file
-src/Tensor.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_torch.dir/build.make CMakeFiles/my_torch.dir/src/Tensor.cpp.o
-.PHONY : src/Tensor.cpp.o
+src/layers.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_torch.dir/build.make CMakeFiles/my_torch.dir/src/layers.cpp.o
+.PHONY : src/layers.cpp.o
 
-src/Tensor.i: src/Tensor.cpp.i
-.PHONY : src/Tensor.i
+src/layers.i: src/layers.cpp.i
+.PHONY : src/layers.i
 
 # target to preprocess a source file
-src/Tensor.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_torch.dir/build.make CMakeFiles/my_torch.dir/src/Tensor.cpp.i
-.PHONY : src/Tensor.cpp.i
+src/layers.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_torch.dir/build.make CMakeFiles/my_torch.dir/src/layers.cpp.i
+.PHONY : src/layers.cpp.i
 
-src/Tensor.s: src/Tensor.cpp.s
-.PHONY : src/Tensor.s
+src/layers.s: src/layers.cpp.s
+.PHONY : src/layers.s
 
 # target to generate assembly for a file
-src/Tensor.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_torch.dir/build.make CMakeFiles/my_torch.dir/src/Tensor.cpp.s
-.PHONY : src/Tensor.cpp.s
+src/layers.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_torch.dir/build.make CMakeFiles/my_torch.dir/src/layers.cpp.s
+.PHONY : src/layers.cpp.s
 
-src/he.o: src/he.cpp.o
-.PHONY : src/he.o
+src/loss.o: src/loss.cpp.o
+.PHONY : src/loss.o
 
 # target to build an object file
-src/he.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_torch.dir/build.make CMakeFiles/my_torch.dir/src/he.cpp.o
-.PHONY : src/he.cpp.o
+src/loss.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_torch.dir/build.make CMakeFiles/my_torch.dir/src/loss.cpp.o
+.PHONY : src/loss.cpp.o
 
-src/he.i: src/he.cpp.i
-.PHONY : src/he.i
+src/loss.i: src/loss.cpp.i
+.PHONY : src/loss.i
 
 # target to preprocess a source file
-src/he.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_torch.dir/build.make CMakeFiles/my_torch.dir/src/he.cpp.i
-.PHONY : src/he.cpp.i
+src/loss.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_torch.dir/build.make CMakeFiles/my_torch.dir/src/loss.cpp.i
+.PHONY : src/loss.cpp.i
 
-src/he.s: src/he.cpp.s
-.PHONY : src/he.s
+src/loss.s: src/loss.cpp.s
+.PHONY : src/loss.s
 
 # target to generate assembly for a file
-src/he.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_torch.dir/build.make CMakeFiles/my_torch.dir/src/he.cpp.s
-.PHONY : src/he.cpp.s
+src/loss.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_torch.dir/build.make CMakeFiles/my_torch.dir/src/loss.cpp.s
+.PHONY : src/loss.cpp.s
 
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
@@ -201,6 +201,102 @@ src/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_torch.dir/build.make CMakeFiles/my_torch.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
+src/operators.o: src/operators.cpp.o
+.PHONY : src/operators.o
+
+# target to build an object file
+src/operators.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_torch.dir/build.make CMakeFiles/my_torch.dir/src/operators.cpp.o
+.PHONY : src/operators.cpp.o
+
+src/operators.i: src/operators.cpp.i
+.PHONY : src/operators.i
+
+# target to preprocess a source file
+src/operators.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_torch.dir/build.make CMakeFiles/my_torch.dir/src/operators.cpp.i
+.PHONY : src/operators.cpp.i
+
+src/operators.s: src/operators.cpp.s
+.PHONY : src/operators.s
+
+# target to generate assembly for a file
+src/operators.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_torch.dir/build.make CMakeFiles/my_torch.dir/src/operators.cpp.s
+.PHONY : src/operators.cpp.s
+
+src/optimizer.o: src/optimizer.cpp.o
+.PHONY : src/optimizer.o
+
+# target to build an object file
+src/optimizer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_torch.dir/build.make CMakeFiles/my_torch.dir/src/optimizer.cpp.o
+.PHONY : src/optimizer.cpp.o
+
+src/optimizer.i: src/optimizer.cpp.i
+.PHONY : src/optimizer.i
+
+# target to preprocess a source file
+src/optimizer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_torch.dir/build.make CMakeFiles/my_torch.dir/src/optimizer.cpp.i
+.PHONY : src/optimizer.cpp.i
+
+src/optimizer.s: src/optimizer.cpp.s
+.PHONY : src/optimizer.s
+
+# target to generate assembly for a file
+src/optimizer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_torch.dir/build.make CMakeFiles/my_torch.dir/src/optimizer.cpp.s
+.PHONY : src/optimizer.cpp.s
+
+src/tensor.o: src/tensor.cpp.o
+.PHONY : src/tensor.o
+
+# target to build an object file
+src/tensor.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_torch.dir/build.make CMakeFiles/my_torch.dir/src/tensor.cpp.o
+.PHONY : src/tensor.cpp.o
+
+src/tensor.i: src/tensor.cpp.i
+.PHONY : src/tensor.i
+
+# target to preprocess a source file
+src/tensor.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_torch.dir/build.make CMakeFiles/my_torch.dir/src/tensor.cpp.i
+.PHONY : src/tensor.cpp.i
+
+src/tensor.s: src/tensor.cpp.s
+.PHONY : src/tensor.s
+
+# target to generate assembly for a file
+src/tensor.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_torch.dir/build.make CMakeFiles/my_torch.dir/src/tensor.cpp.s
+.PHONY : src/tensor.cpp.s
+
+src/utils.o: src/utils.cpp.o
+.PHONY : src/utils.o
+
+# target to build an object file
+src/utils.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_torch.dir/build.make CMakeFiles/my_torch.dir/src/utils.cpp.o
+.PHONY : src/utils.cpp.o
+
+src/utils.i: src/utils.cpp.i
+.PHONY : src/utils.i
+
+# target to preprocess a source file
+src/utils.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_torch.dir/build.make CMakeFiles/my_torch.dir/src/utils.cpp.i
+.PHONY : src/utils.cpp.i
+
+src/utils.s: src/utils.cpp.s
+.PHONY : src/utils.s
+
+# target to generate assembly for a file
+src/utils.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_torch.dir/build.make CMakeFiles/my_torch.dir/src/utils.cpp.s
+.PHONY : src/utils.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -210,15 +306,27 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... my_torch"
-	@echo "... src/Tensor.o"
-	@echo "... src/Tensor.i"
-	@echo "... src/Tensor.s"
-	@echo "... src/he.o"
-	@echo "... src/he.i"
-	@echo "... src/he.s"
+	@echo "... src/layers.o"
+	@echo "... src/layers.i"
+	@echo "... src/layers.s"
+	@echo "... src/loss.o"
+	@echo "... src/loss.i"
+	@echo "... src/loss.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/operators.o"
+	@echo "... src/operators.i"
+	@echo "... src/operators.s"
+	@echo "... src/optimizer.o"
+	@echo "... src/optimizer.i"
+	@echo "... src/optimizer.s"
+	@echo "... src/tensor.o"
+	@echo "... src/tensor.i"
+	@echo "... src/tensor.s"
+	@echo "... src/utils.o"
+	@echo "... src/utils.i"
+	@echo "... src/utils.s"
 .PHONY : help
 
 

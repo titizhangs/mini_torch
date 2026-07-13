@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/ti_ti_/workspace/my_torch/src
+CXX_INCLUDES = -I/home/ti_ti_/workspace/my_torch/include
 
 CXX_FLAGS = -g -O0 -std=gnu++17
 

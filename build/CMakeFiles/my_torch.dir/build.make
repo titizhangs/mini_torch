@@ -83,49 +83,113 @@ CMakeFiles/my_torch.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/my_torch.dir/src/main.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ti_ti_/workspace/my_torch/src/main.cpp -o CMakeFiles/my_torch.dir/src/main.cpp.s
 
-CMakeFiles/my_torch.dir/src/Tensor.cpp.o: CMakeFiles/my_torch.dir/flags.make
-CMakeFiles/my_torch.dir/src/Tensor.cpp.o: /home/ti_ti_/workspace/my_torch/src/Tensor.cpp
-CMakeFiles/my_torch.dir/src/Tensor.cpp.o: CMakeFiles/my_torch.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ti_ti_/workspace/my_torch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/my_torch.dir/src/Tensor.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/my_torch.dir/src/Tensor.cpp.o -MF CMakeFiles/my_torch.dir/src/Tensor.cpp.o.d -o CMakeFiles/my_torch.dir/src/Tensor.cpp.o -c /home/ti_ti_/workspace/my_torch/src/Tensor.cpp
+CMakeFiles/my_torch.dir/src/layers.cpp.o: CMakeFiles/my_torch.dir/flags.make
+CMakeFiles/my_torch.dir/src/layers.cpp.o: /home/ti_ti_/workspace/my_torch/src/layers.cpp
+CMakeFiles/my_torch.dir/src/layers.cpp.o: CMakeFiles/my_torch.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ti_ti_/workspace/my_torch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/my_torch.dir/src/layers.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/my_torch.dir/src/layers.cpp.o -MF CMakeFiles/my_torch.dir/src/layers.cpp.o.d -o CMakeFiles/my_torch.dir/src/layers.cpp.o -c /home/ti_ti_/workspace/my_torch/src/layers.cpp
 
-CMakeFiles/my_torch.dir/src/Tensor.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/my_torch.dir/src/Tensor.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ti_ti_/workspace/my_torch/src/Tensor.cpp > CMakeFiles/my_torch.dir/src/Tensor.cpp.i
+CMakeFiles/my_torch.dir/src/layers.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/my_torch.dir/src/layers.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ti_ti_/workspace/my_torch/src/layers.cpp > CMakeFiles/my_torch.dir/src/layers.cpp.i
 
-CMakeFiles/my_torch.dir/src/Tensor.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/my_torch.dir/src/Tensor.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ti_ti_/workspace/my_torch/src/Tensor.cpp -o CMakeFiles/my_torch.dir/src/Tensor.cpp.s
+CMakeFiles/my_torch.dir/src/layers.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/my_torch.dir/src/layers.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ti_ti_/workspace/my_torch/src/layers.cpp -o CMakeFiles/my_torch.dir/src/layers.cpp.s
 
-CMakeFiles/my_torch.dir/src/he.cpp.o: CMakeFiles/my_torch.dir/flags.make
-CMakeFiles/my_torch.dir/src/he.cpp.o: /home/ti_ti_/workspace/my_torch/src/he.cpp
-CMakeFiles/my_torch.dir/src/he.cpp.o: CMakeFiles/my_torch.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ti_ti_/workspace/my_torch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/my_torch.dir/src/he.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/my_torch.dir/src/he.cpp.o -MF CMakeFiles/my_torch.dir/src/he.cpp.o.d -o CMakeFiles/my_torch.dir/src/he.cpp.o -c /home/ti_ti_/workspace/my_torch/src/he.cpp
+CMakeFiles/my_torch.dir/src/loss.cpp.o: CMakeFiles/my_torch.dir/flags.make
+CMakeFiles/my_torch.dir/src/loss.cpp.o: /home/ti_ti_/workspace/my_torch/src/loss.cpp
+CMakeFiles/my_torch.dir/src/loss.cpp.o: CMakeFiles/my_torch.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ti_ti_/workspace/my_torch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/my_torch.dir/src/loss.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/my_torch.dir/src/loss.cpp.o -MF CMakeFiles/my_torch.dir/src/loss.cpp.o.d -o CMakeFiles/my_torch.dir/src/loss.cpp.o -c /home/ti_ti_/workspace/my_torch/src/loss.cpp
 
-CMakeFiles/my_torch.dir/src/he.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/my_torch.dir/src/he.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ti_ti_/workspace/my_torch/src/he.cpp > CMakeFiles/my_torch.dir/src/he.cpp.i
+CMakeFiles/my_torch.dir/src/loss.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/my_torch.dir/src/loss.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ti_ti_/workspace/my_torch/src/loss.cpp > CMakeFiles/my_torch.dir/src/loss.cpp.i
 
-CMakeFiles/my_torch.dir/src/he.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/my_torch.dir/src/he.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ti_ti_/workspace/my_torch/src/he.cpp -o CMakeFiles/my_torch.dir/src/he.cpp.s
+CMakeFiles/my_torch.dir/src/loss.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/my_torch.dir/src/loss.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ti_ti_/workspace/my_torch/src/loss.cpp -o CMakeFiles/my_torch.dir/src/loss.cpp.s
+
+CMakeFiles/my_torch.dir/src/operators.cpp.o: CMakeFiles/my_torch.dir/flags.make
+CMakeFiles/my_torch.dir/src/operators.cpp.o: /home/ti_ti_/workspace/my_torch/src/operators.cpp
+CMakeFiles/my_torch.dir/src/operators.cpp.o: CMakeFiles/my_torch.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ti_ti_/workspace/my_torch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/my_torch.dir/src/operators.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/my_torch.dir/src/operators.cpp.o -MF CMakeFiles/my_torch.dir/src/operators.cpp.o.d -o CMakeFiles/my_torch.dir/src/operators.cpp.o -c /home/ti_ti_/workspace/my_torch/src/operators.cpp
+
+CMakeFiles/my_torch.dir/src/operators.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/my_torch.dir/src/operators.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ti_ti_/workspace/my_torch/src/operators.cpp > CMakeFiles/my_torch.dir/src/operators.cpp.i
+
+CMakeFiles/my_torch.dir/src/operators.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/my_torch.dir/src/operators.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ti_ti_/workspace/my_torch/src/operators.cpp -o CMakeFiles/my_torch.dir/src/operators.cpp.s
+
+CMakeFiles/my_torch.dir/src/optimizer.cpp.o: CMakeFiles/my_torch.dir/flags.make
+CMakeFiles/my_torch.dir/src/optimizer.cpp.o: /home/ti_ti_/workspace/my_torch/src/optimizer.cpp
+CMakeFiles/my_torch.dir/src/optimizer.cpp.o: CMakeFiles/my_torch.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ti_ti_/workspace/my_torch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/my_torch.dir/src/optimizer.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/my_torch.dir/src/optimizer.cpp.o -MF CMakeFiles/my_torch.dir/src/optimizer.cpp.o.d -o CMakeFiles/my_torch.dir/src/optimizer.cpp.o -c /home/ti_ti_/workspace/my_torch/src/optimizer.cpp
+
+CMakeFiles/my_torch.dir/src/optimizer.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/my_torch.dir/src/optimizer.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ti_ti_/workspace/my_torch/src/optimizer.cpp > CMakeFiles/my_torch.dir/src/optimizer.cpp.i
+
+CMakeFiles/my_torch.dir/src/optimizer.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/my_torch.dir/src/optimizer.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ti_ti_/workspace/my_torch/src/optimizer.cpp -o CMakeFiles/my_torch.dir/src/optimizer.cpp.s
+
+CMakeFiles/my_torch.dir/src/tensor.cpp.o: CMakeFiles/my_torch.dir/flags.make
+CMakeFiles/my_torch.dir/src/tensor.cpp.o: /home/ti_ti_/workspace/my_torch/src/tensor.cpp
+CMakeFiles/my_torch.dir/src/tensor.cpp.o: CMakeFiles/my_torch.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ti_ti_/workspace/my_torch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/my_torch.dir/src/tensor.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/my_torch.dir/src/tensor.cpp.o -MF CMakeFiles/my_torch.dir/src/tensor.cpp.o.d -o CMakeFiles/my_torch.dir/src/tensor.cpp.o -c /home/ti_ti_/workspace/my_torch/src/tensor.cpp
+
+CMakeFiles/my_torch.dir/src/tensor.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/my_torch.dir/src/tensor.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ti_ti_/workspace/my_torch/src/tensor.cpp > CMakeFiles/my_torch.dir/src/tensor.cpp.i
+
+CMakeFiles/my_torch.dir/src/tensor.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/my_torch.dir/src/tensor.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ti_ti_/workspace/my_torch/src/tensor.cpp -o CMakeFiles/my_torch.dir/src/tensor.cpp.s
+
+CMakeFiles/my_torch.dir/src/utils.cpp.o: CMakeFiles/my_torch.dir/flags.make
+CMakeFiles/my_torch.dir/src/utils.cpp.o: /home/ti_ti_/workspace/my_torch/src/utils.cpp
+CMakeFiles/my_torch.dir/src/utils.cpp.o: CMakeFiles/my_torch.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ti_ti_/workspace/my_torch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/my_torch.dir/src/utils.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/my_torch.dir/src/utils.cpp.o -MF CMakeFiles/my_torch.dir/src/utils.cpp.o.d -o CMakeFiles/my_torch.dir/src/utils.cpp.o -c /home/ti_ti_/workspace/my_torch/src/utils.cpp
+
+CMakeFiles/my_torch.dir/src/utils.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/my_torch.dir/src/utils.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ti_ti_/workspace/my_torch/src/utils.cpp > CMakeFiles/my_torch.dir/src/utils.cpp.i
+
+CMakeFiles/my_torch.dir/src/utils.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/my_torch.dir/src/utils.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ti_ti_/workspace/my_torch/src/utils.cpp -o CMakeFiles/my_torch.dir/src/utils.cpp.s
 
 # Object files for target my_torch
 my_torch_OBJECTS = \
 "CMakeFiles/my_torch.dir/src/main.cpp.o" \
-"CMakeFiles/my_torch.dir/src/Tensor.cpp.o" \
-"CMakeFiles/my_torch.dir/src/he.cpp.o"
+"CMakeFiles/my_torch.dir/src/layers.cpp.o" \
+"CMakeFiles/my_torch.dir/src/loss.cpp.o" \
+"CMakeFiles/my_torch.dir/src/operators.cpp.o" \
+"CMakeFiles/my_torch.dir/src/optimizer.cpp.o" \
+"CMakeFiles/my_torch.dir/src/tensor.cpp.o" \
+"CMakeFiles/my_torch.dir/src/utils.cpp.o"
 
 # External object files for target my_torch
 my_torch_EXTERNAL_OBJECTS =
 
 my_torch: CMakeFiles/my_torch.dir/src/main.cpp.o
-my_torch: CMakeFiles/my_torch.dir/src/Tensor.cpp.o
-my_torch: CMakeFiles/my_torch.dir/src/he.cpp.o
+my_torch: CMakeFiles/my_torch.dir/src/layers.cpp.o
+my_torch: CMakeFiles/my_torch.dir/src/loss.cpp.o
+my_torch: CMakeFiles/my_torch.dir/src/operators.cpp.o
+my_torch: CMakeFiles/my_torch.dir/src/optimizer.cpp.o
+my_torch: CMakeFiles/my_torch.dir/src/tensor.cpp.o
+my_torch: CMakeFiles/my_torch.dir/src/utils.cpp.o
 my_torch: CMakeFiles/my_torch.dir/build.make
 my_torch: CMakeFiles/my_torch.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/ti_ti_/workspace/my_torch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable my_torch"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/ti_ti_/workspace/my_torch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable my_torch"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/my_torch.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

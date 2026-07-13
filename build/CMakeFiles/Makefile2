@@ -81,12 +81,12 @@ clean: CMakeFiles/my_torch.dir/clean
 CMakeFiles/my_torch.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_torch.dir/build.make CMakeFiles/my_torch.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_torch.dir/build.make CMakeFiles/my_torch.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ti_ti_/workspace/my_torch/build/CMakeFiles --progress-num=1,2,3,4 "Built target my_torch"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ti_ti_/workspace/my_torch/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8 "Built target my_torch"
 .PHONY : CMakeFiles/my_torch.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/my_torch.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ti_ti_/workspace/my_torch/build/CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ti_ti_/workspace/my_torch/build/CMakeFiles 8
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/my_torch.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/ti_ti_/workspace/my_torch/build/CMakeFiles 0
 .PHONY : CMakeFiles/my_torch.dir/rule
