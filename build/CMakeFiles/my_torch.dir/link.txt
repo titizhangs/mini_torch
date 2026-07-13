@@ -1,1 +1,1 @@
-/usr/bin/c++ -g -O0 CMakeFiles/my_torch.dir/src/main.cpp.o CMakeFiles/my_torch.dir/src/Tensor.cpp.o -o my_torch 
+/usr/bin/c++ -g -O0 CMakeFiles/my_torch.dir/src/main.cpp.o CMakeFiles/my_torch.dir/src/Tensor.cpp.o CMakeFiles/my_torch.dir/src/he.cpp.o -o my_torch 

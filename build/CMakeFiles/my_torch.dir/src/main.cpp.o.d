@@ -166,4 +166,8 @@ CMakeFiles/my_torch.dir/src/main.cpp.o: \
  /usr/include/c++/13/bits/algorithmfwd.h \
  /usr/include/c++/13/bits/stl_heap.h \
  /usr/include/c++/13/bits/uniform_int_dist.h \
- /usr/include/c++/13/bits/stl_tempbuf.h
+ /usr/include/c++/13/bits/stl_tempbuf.h \
+ /home/ti_ti_/workspace/my_torch/src/Linear.h \
+ /home/ti_ti_/workspace/my_torch/src/He.h \
+ /home/ti_ti_/workspace/my_torch/src/SGD.h \
+ /home/ti_ti_/workspace/my_torch/src/Loss.h

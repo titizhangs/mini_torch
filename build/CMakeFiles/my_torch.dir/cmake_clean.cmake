@@ -1,6 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/my_torch.dir/src/Tensor.cpp.o"
   "CMakeFiles/my_torch.dir/src/Tensor.cpp.o.d"
+  "CMakeFiles/my_torch.dir/src/he.cpp.o"
+  "CMakeFiles/my_torch.dir/src/he.cpp.o.d"
   "CMakeFiles/my_torch.dir/src/main.cpp.o"
   "CMakeFiles/my_torch.dir/src/main.cpp.o.d"
   "my_torch"

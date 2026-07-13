@@ -1,7 +1,46 @@
 {
-    // 使用 IntelliSense 了解相关属性。 
-    // 悬停以查看现有属性的描述。
-    // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
-    "configurations": []
+    "configurations": [
+        {
+            "name": "Debug my_torch (GDB)",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/build/my_torch",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [
+                {
+                    "name": "DEBUGINFOD_URLS",
+                    "value": ""
+                },
+                {
+                    "name": "DEBUGINFOD_ENABLE",
+                    "value": "0"
+                },
+                {
+                    "name": "DEBUGINFOD_MAXSIZE",
+                    "value": "0"
+                }
+            ],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "miDebuggerPath": "/usr/bin/gdb",
+            "targetArchitecture": "x86_64",
+            "preLaunchTask": "Build Project",
+            "setupCommands": [
+                // 放在最前面，最先执行，确保下载动作触发前就关闭
+                {
+                    "description": "彻底关闭自动下载调试符号",
+                    "text": "set debuginfod enabled off",
+                    "ignoreFailures": false
+                },
+                {
+                    "description": "启用整齐打印",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ]
+        }
+    ]
 }

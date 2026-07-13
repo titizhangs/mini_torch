@@ -9,6 +9,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/ti_ti_/workspace/my_torch/src/Tensor.cpp" "CMakeFiles/my_torch.dir/src/Tensor.cpp.o" "gcc" "CMakeFiles/my_torch.dir/src/Tensor.cpp.o.d"
+  "/home/ti_ti_/workspace/my_torch/src/he.cpp" "CMakeFiles/my_torch.dir/src/he.cpp.o" "gcc" "CMakeFiles/my_torch.dir/src/he.cpp.o.d"
   "/home/ti_ti_/workspace/my_torch/src/main.cpp" "CMakeFiles/my_torch.dir/src/main.cpp.o" "gcc" "CMakeFiles/my_torch.dir/src/main.cpp.o.d"
   )
 

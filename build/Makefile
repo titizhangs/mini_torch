@@ -153,6 +153,30 @@ src/Tensor.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_torch.dir/build.make CMakeFiles/my_torch.dir/src/Tensor.cpp.s
 .PHONY : src/Tensor.cpp.s
 
+src/he.o: src/he.cpp.o
+.PHONY : src/he.o
+
+# target to build an object file
+src/he.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_torch.dir/build.make CMakeFiles/my_torch.dir/src/he.cpp.o
+.PHONY : src/he.cpp.o
+
+src/he.i: src/he.cpp.i
+.PHONY : src/he.i
+
+# target to preprocess a source file
+src/he.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_torch.dir/build.make CMakeFiles/my_torch.dir/src/he.cpp.i
+.PHONY : src/he.cpp.i
+
+src/he.s: src/he.cpp.s
+.PHONY : src/he.s
+
+# target to generate assembly for a file
+src/he.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_torch.dir/build.make CMakeFiles/my_torch.dir/src/he.cpp.s
+.PHONY : src/he.cpp.s
+
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
 
@@ -189,6 +213,9 @@ help:
 	@echo "... src/Tensor.o"
 	@echo "... src/Tensor.i"
 	@echo "... src/Tensor.s"
+	@echo "... src/he.o"
+	@echo "... src/he.i"
+	@echo "... src/he.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

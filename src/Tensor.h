@@ -6,21 +6,25 @@
 class Tensor {
 public:
     // ---------- 构造与析构 ----------
-    // 二维构造
-    Tensor(int r, int c, bool requires_grad = false);
     // 通用多维构造
     Tensor(std::vector<int> shape, bool requires_grad = false);
     ~Tensor() = default;
 
     // ---------- 自动求导接口 ----------
     // 触发反向传播
-    void backward();
-    // 梯度清零
-    void zero_grad();
-    void set_backward_fn(std::function<void(const Tensor& upstream)> fn) {
+    void backward() const;
+    // 清零梯度（训练每轮前调用）
+    void zero_grad() {
+        if (!grad_.empty()) {
+            std::fill(grad_.begin(), grad_.end(), 0.0f);
+        }
+    }
+    void set_backward_fn(std::function<void(const Tensor& upstream)> fn, std::vector<const Tensor*> inputs) {
 //         std::move 本身不移动数据
-// 它只是一个类型转换：把左值强制转成右值引用，仅此而已。真正的移动操作，是 std::function 的移动赋值运算符做的。std::move 只是告诉编译器：“这个对象我不要了，你可以用移动版本的赋值，省点事”。
+// 它只是一个类型转换：把左值强制转成右值引用，仅此而已。真正的移动操作，是 std::function 的移动赋值运算符做的。
+// std::move 只是告诉编译器：“这个对象我不要了，你可以用移动版本的赋值，省点事”。
         backward_fn_ = std::move(fn);
+        inputs_ = std::move(inputs);
     }
 
     // ---------- 兼容二维接口 ----------
@@ -31,7 +35,7 @@ public:
 
     // ---------- 通用张量接口 ----------
     int dim() const { return shape_.size(); }
-    int numel() const { return static_cast<int>(data_.size()); }
+    int numel() const { return static_cast<size_t>(data_.size()); }
     const std::vector<int>& shape() const { return shape_; }
     const std::vector<int>& stride() const { return stride_; }
     
@@ -46,7 +50,8 @@ public:
 
     const std::vector<float>& data() const { return data_; }
     std::vector<float>& data(){ return data_; }
-    std::vector<float>& grad() const;
+    std::vector<float>& mutable_grad() const;
+    const std::vector<float>& grad() const;
 
 
 private:
@@ -56,12 +61,13 @@ private:
     // ---------- 核心维度存储 ----------
     std::vector<int> shape_;
     std::vector<int> stride_;
-    
+
     bool requires_grad_;
     std::vector<float> data_;
     mutable std::vector<float> grad_ ;
     std::function<void(const Tensor& upstream)> backward_fn_;
-
+    // 计算图依赖的输入节点
+    std::vector<const Tensor*> inputs_;
     // ---------- 内部工具函数 ----------
     // 梯度内存懒加载兜底
     void ensure_grad() const;
@@ -78,3 +84,6 @@ Tensor mul(const Tensor& a, const Tensor& b);
 Tensor div(const Tensor& a,const Tensor& b);
 Tensor matmul(const Tensor& a,const Tensor& b);
 Tensor relu(const Tensor& x);
+Tensor bias_add(const Tensor& input, const Tensor& bias);
+Tensor sum(const Tensor& x);
+Tensor mse_loss(const Tensor& pred, const Tensor& target);
