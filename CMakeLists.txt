@@ -18,5 +18,6 @@ add_executable(my_torch
 #包含头文件
 target_include_directories(my_torch PRIVATE include)
 
-set(CMAKE_BUILD_TYPE Debug)          # 生成调试符号
-set(CMAKE_CXX_FLAGS_DEBUG "-g -O0")  # -g 加调试信息，-O0 关闭优化
+# set(CMAKE_BUILD_TYPE Debug)          # 生成调试符号
+# set(CMAKE_CXX_FLAGS_DEBUG "-g -O0")  # -g 加调试信息，-O0 关闭优化
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O2 -DNDEBUG")

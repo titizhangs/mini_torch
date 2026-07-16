@@ -6,5 +6,5 @@ CXX_DEFINES =
 
 CXX_INCLUDES = -I/home/ti_ti_/workspace/my_torch/include
 
-CXX_FLAGS = -g -O0 -std=gnu++17
+CXX_FLAGS =  -O2 -DNDEBUG -g -std=gnu++17
 

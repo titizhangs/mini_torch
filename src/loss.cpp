@@ -4,6 +4,7 @@
 
 namespace simpledl {
 
+//均方误差损失（Mean Squared Error，简称 MSE）
 Tensor mse_loss(const Tensor& pred, const Tensor& target) {
     if (pred.shape() != target.shape()) {
         throw std::invalid_argument("MSELoss: shape mismatch");

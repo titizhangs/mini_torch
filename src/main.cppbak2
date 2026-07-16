@@ -1,0 +1,82 @@
+#include <cstdio>
+#include <vector>
+#include "tensor.h"
+#include "layers.h"
+#include "operators.h"
+#include "loss.h"
+#include "optimizer.h"
+
+using namespace simpledl;
+
+int main() {
+    // 构造数据集：8个样本，单通道8x8图像，回归一个连续值
+    const int batch = 8;
+    const int channels = 1;
+    const int img_size = 8;
+
+    // 随机生成输入图像数据
+    std::vector<float> x_data(batch * channels * img_size * img_size);
+    std::vector<float> y_data(batch);
+    for (int i = 0; i < x_data.size(); ++i) {
+        x_data[i] = static_cast<float>(i % 10) * 0.1f;
+    }
+    // 构造标签：与图像像素和相关的回归目标
+    for (int n = 0; n < batch; ++n) {
+        float sum = 0.0f;
+        for (int i = 0; i < channels * img_size * img_size; ++i) {
+            sum += x_data[n * channels * img_size * img_size + i];
+        }
+        y_data[n] = sum * 0.5f + 1.0f;
+    }
+
+    Tensor input({batch, channels, img_size, img_size}, false);
+    Tensor target({batch, 1}, false);
+    for (size_t i = 0; i < x_data.size(); ++i) {
+        input.mutable_data()[i] = x_data[i];
+    }
+    for (int i = 0; i < batch; ++i) {
+        target.mutable_data()[i] = y_data[i];
+    }
+
+    // 构建 CNN 网络
+    // 结构：Conv2d(1->4, 3x3, padding=1) -> ReLU -> MaxPool(2x2) -> Flatten -> Linear(4*4*4 -> 1)
+    Conv2d conv(1, 4, 3, 1, 1);  // 输出 [8,4,8,8]
+    MaxPool2d pool(2);           // 输出 [8,4,4,4]
+    Linear fc(4 * 4 * 4, 1);     // 展平后接全连接
+
+    // 收集所有可训练参数
+    std::vector<Tensor> all_params;
+    auto p_conv = conv.parameters();
+    auto p_fc = fc.parameters();
+    all_params.insert(all_params.end(), p_conv.begin(), p_conv.end());
+    all_params.insert(all_params.end(), p_fc.begin(), p_fc.end());
+
+    SGD optimizer(all_params, 0.001f);
+
+    const int epochs = 500;
+    for (int epoch = 1; epoch <= epochs; ++epoch) {
+        // 前向传播
+        Tensor feat = conv.forward(input);
+        Tensor act = relu(feat);
+        Tensor pooled = pool.forward(act);
+        Tensor flat = flatten(pooled);
+        Tensor pred = fc.forward(flat);
+        Tensor loss = mse_loss(pred, target);
+
+        // 反向传播 + 参数更新
+        optimizer.zero_grad();
+        loss.backward();
+        optimizer.step();
+
+        if (epoch % 100 == 0) {
+            printf("Epoch %4d/%d | Loss: %.6f\n",
+                   epoch, epochs, loss.data()[0]);
+        }
+    }
+
+    printf("\n===== 训练完成 =====\n");
+    printf("卷积层参数量: %zu\n", conv.parameters()[0].numel() + conv.parameters()[1].numel());
+    printf("全连接层参数量: %zu\n", fc.parameters()[0].numel() + fc.parameters()[1].numel());
+
+    return 0;
+}

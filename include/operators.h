@@ -25,4 +25,20 @@ Tensor bias_add(const Tensor& x, const Tensor& bias);
 // ReLU 激活函数
 Tensor relu(const Tensor& x);
 
+// ====== 新增 CNN 相关算子 ======
+// 二维卷积（NCHW格式，方形核/步长/填充）
+// input: [N, in_channels, H, W]
+// weight: [out_channels, in_channels, kernel_size, kernel_size]
+// bias: [out_channels]
+Tensor conv2d(const Tensor& input, const Tensor& weight, const Tensor& bias,
+              int stride = 1, int padding = 0);
+
+// 二维最大池化（NCHW格式，方形核/步长/填充）
+// stride 默认等于 kernel_size（标准下采样配置）
+Tensor max_pool2d(const Tensor& input, int kernel_size, int stride = 0, int padding = 0);
+
+// 张量展平：将任意维度张量展为二维 [N, *] -> [N, D]
+// 用于卷积层衔接全连接层
+Tensor flatten(const Tensor& x);
+
 }  // namespace simpledl

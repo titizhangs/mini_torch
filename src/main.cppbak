@@ -1,0 +1,161 @@
+#include <cstdio>
+#include <vector>
+#include "tensor.h"
+#include "layers.h"
+#include "loss.h"
+#include "optimizer.h"
+#include "operators.h"
+
+using namespace simpledl;
+
+// int main() {
+//     // 构造8组二元样本：x1, x2 -> y
+//     std::vector<float> x_data = {
+//         1.0f, 0.0f,   // 样本1
+//         2.0f, 1.0f,   // 样本2
+//         3.0f, 2.0f,   // 样本3
+//         4.0f, 1.0f,   // 样本4
+//         5.0f, 3.0f,   // 样本5
+//         0.0f, 2.0f,   // 样本6
+//         1.0f, 3.0f,   // 样本7
+//         3.0f, 0.0f    // 样本8
+//     };
+//     // 对应标签：y = 2.5*x1 -1.2*x2 + 0.8
+//     std::vector<float> y_data = {
+//         3.3f, 4.6f, 5.9f, 9.6f,
+//         9.7f, -1.6f, -0.3f, 8.3f
+//     };
+
+//     // 输入形状：[样本数, 特征数] = [8, 2]
+//     Tensor input({8, 2}, false);
+//     // 标签形状：[样本数, 输出维度] = [8, 1]
+//     Tensor target({8, 1}, false);
+
+//     for (size_t i = 0; i < x_data.size(); ++i) {
+//         input.mutable_data()[i] = x_data[i];
+//     }
+//     for (size_t i = 0; i < y_data.size(); ++i) {
+//         target.mutable_data()[i] = y_data[i];
+//     }
+
+//     // 构建网络：2输入 -> 1输出
+//     Linear layer(2, 1);
+//     SGD optimizer(layer.parameters(), 0.005f);
+
+//     const int epochs = 1500;
+//     for (int epoch = 1; epoch <= epochs; ++epoch) {
+//         // 前向传播
+//         Tensor pred = layer.forward(input);
+//         Tensor loss = mse_loss(pred, target);
+
+//         // 反向传播 + 参数更新
+//         optimizer.zero_grad();
+//         loss.backward();
+//         optimizer.step();
+
+//         // 每300轮打印一次
+//         if (epoch % 300 == 0) {
+//             Tensor weight = layer.parameters()[0];
+//             Tensor bias = layer.parameters()[1];
+//             printf("Epoch %4d/%d | Loss: %.6f | w1: %.4f  w2: %.4f | b: %.4f\n",
+//                    epoch, epochs, loss.data()[0],
+//                    weight.data()[0], weight.data()[1],
+//                    bias.data()[0]);
+//         }
+//     }
+
+//     // 最终结果对比
+//     printf("\n===== 训练完成 =====\n");
+//     Tensor weight = layer.parameters()[0];
+//     Tensor bias = layer.parameters()[1];
+//     printf("真实权重: w1=2.5000, w2=-1.2000, b=0.8000\n");
+//     printf("训练权重: w1=%.4f, w2=%.4f, b=%.4f\n",
+//            weight.data()[0], weight.data()[1], bias.data()[0]);
+
+//     return 0;
+// }
+
+int main() {
+    // 构造10组二元样本，拟合非线性函数 y = x1^2 + x2
+    std::vector<float> x_data = {
+        0.0f, 0.0f,
+        1.0f, 1.0f,
+        2.0f, 0.5f,
+        3.0f, 2.0f,
+        -1.0f, 3.0f,
+        -2.0f, 1.0f,
+        0.5f, -1.0f,
+        1.5f, 2.5f,
+        -0.5f, 0.0f,
+        2.5f, -0.5f
+    };
+    std::vector<float> y_data = {
+        0.0f,   // 0 + 0
+        2.0f,   // 1 + 1
+        4.5f,   // 4 + 0.5
+        11.0f,  // 9 + 2
+        4.0f,   // 1 + 3
+        5.0f,   // 4 + 1
+        -0.75f, // 0.25 -1
+        4.75f,  // 2.25 + 2.5
+        0.25f,  // 0.25 + 0
+        5.75f   // 6.25 -0.5
+    };
+
+    // 输入 [10, 2]，标签 [10, 1]
+    Tensor input({10, 2}, false);
+    Tensor target({10, 1}, false);
+    for (size_t i = 0; i < x_data.size(); ++i) {
+        input.mutable_data()[i] = x_data[i];
+    }
+    for (size_t i = 0; i < y_data.size(); ++i) {
+        target.mutable_data()[i] = y_data[i];
+    }
+
+    // 构建双层网络：2 -> 8 -> 1
+    Linear layer1(2, 8);
+    Linear layer2(8, 1);
+
+    // 收集所有层的可训练参数
+    std::vector<Tensor> all_params;
+    auto p1 = layer1.parameters();
+    auto p2 = layer2.parameters();
+    all_params.insert(all_params.end(), p1.begin(), p1.end());
+    all_params.insert(all_params.end(), p2.begin(), p2.end());
+
+    SGD optimizer(all_params, 0.001f);
+
+    const int epochs = 6000;
+    for (int epoch = 1; epoch <= epochs; ++epoch) {
+        // 前向传播：两层 + ReLU 激活
+        Tensor hidden = layer1.forward(input);
+        Tensor activated = relu(hidden);
+        Tensor pred = layer2.forward(activated);
+        Tensor loss = mse_loss(pred, target);
+
+        // 反向传播 + 参数更新
+        optimizer.zero_grad();
+        loss.backward();
+        optimizer.step();
+
+        // 每500轮打印一次
+        if (epoch % 500 == 0) {
+            printf("Epoch %4d/%d | Loss: %.6f\n",
+                   epoch, epochs, loss.data()[0]);
+        }
+    }
+
+    // 输出前3个样本的预测值对比
+    printf("\n===== 预测结果对比 =====\n");
+    Tensor hidden = layer1.forward(input);
+    Tensor activated = relu(hidden);
+    Tensor pred = layer2.forward(activated);
+    printf("%-8s %-8s %-8s\n", "真实值", "预测值", "误差");
+    for (int i = 0; i < 5; ++i) {
+        float y_true = target.data()[i];
+        float y_pred = pred.data()[i];
+        printf("%-8.3f %-8.3f %-8.3f\n", y_true, y_pred, y_true - y_pred);
+    }
+
+    return 0;
+}

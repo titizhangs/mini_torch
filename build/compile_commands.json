@@ -1,43 +1,43 @@
 [
 {
   "directory": "/home/ti_ti_/workspace/my_torch/build",
-  "command": "/usr/bin/c++  -I/home/ti_ti_/workspace/my_torch/include -g -O0 -std=gnu++17 -o CMakeFiles/my_torch.dir/src/main.cpp.o -c /home/ti_ti_/workspace/my_torch/src/main.cpp",
+  "command": "/usr/bin/c++  -I/home/ti_ti_/workspace/my_torch/include  -O2 -DNDEBUG -g -std=gnu++17 -o CMakeFiles/my_torch.dir/src/main.cpp.o -c /home/ti_ti_/workspace/my_torch/src/main.cpp",
   "file": "/home/ti_ti_/workspace/my_torch/src/main.cpp",
   "output": "CMakeFiles/my_torch.dir/src/main.cpp.o"
 },
 {
   "directory": "/home/ti_ti_/workspace/my_torch/build",
-  "command": "/usr/bin/c++  -I/home/ti_ti_/workspace/my_torch/include -g -O0 -std=gnu++17 -o CMakeFiles/my_torch.dir/src/layers.cpp.o -c /home/ti_ti_/workspace/my_torch/src/layers.cpp",
+  "command": "/usr/bin/c++  -I/home/ti_ti_/workspace/my_torch/include  -O2 -DNDEBUG -g -std=gnu++17 -o CMakeFiles/my_torch.dir/src/layers.cpp.o -c /home/ti_ti_/workspace/my_torch/src/layers.cpp",
   "file": "/home/ti_ti_/workspace/my_torch/src/layers.cpp",
   "output": "CMakeFiles/my_torch.dir/src/layers.cpp.o"
 },
 {
   "directory": "/home/ti_ti_/workspace/my_torch/build",
-  "command": "/usr/bin/c++  -I/home/ti_ti_/workspace/my_torch/include -g -O0 -std=gnu++17 -o CMakeFiles/my_torch.dir/src/loss.cpp.o -c /home/ti_ti_/workspace/my_torch/src/loss.cpp",
+  "command": "/usr/bin/c++  -I/home/ti_ti_/workspace/my_torch/include  -O2 -DNDEBUG -g -std=gnu++17 -o CMakeFiles/my_torch.dir/src/loss.cpp.o -c /home/ti_ti_/workspace/my_torch/src/loss.cpp",
   "file": "/home/ti_ti_/workspace/my_torch/src/loss.cpp",
   "output": "CMakeFiles/my_torch.dir/src/loss.cpp.o"
 },
 {
   "directory": "/home/ti_ti_/workspace/my_torch/build",
-  "command": "/usr/bin/c++  -I/home/ti_ti_/workspace/my_torch/include -g -O0 -std=gnu++17 -o CMakeFiles/my_torch.dir/src/operators.cpp.o -c /home/ti_ti_/workspace/my_torch/src/operators.cpp",
+  "command": "/usr/bin/c++  -I/home/ti_ti_/workspace/my_torch/include  -O2 -DNDEBUG -g -std=gnu++17 -o CMakeFiles/my_torch.dir/src/operators.cpp.o -c /home/ti_ti_/workspace/my_torch/src/operators.cpp",
   "file": "/home/ti_ti_/workspace/my_torch/src/operators.cpp",
   "output": "CMakeFiles/my_torch.dir/src/operators.cpp.o"
 },
 {
   "directory": "/home/ti_ti_/workspace/my_torch/build",
-  "command": "/usr/bin/c++  -I/home/ti_ti_/workspace/my_torch/include -g -O0 -std=gnu++17 -o CMakeFiles/my_torch.dir/src/optimizer.cpp.o -c /home/ti_ti_/workspace/my_torch/src/optimizer.cpp",
+  "command": "/usr/bin/c++  -I/home/ti_ti_/workspace/my_torch/include  -O2 -DNDEBUG -g -std=gnu++17 -o CMakeFiles/my_torch.dir/src/optimizer.cpp.o -c /home/ti_ti_/workspace/my_torch/src/optimizer.cpp",
   "file": "/home/ti_ti_/workspace/my_torch/src/optimizer.cpp",
   "output": "CMakeFiles/my_torch.dir/src/optimizer.cpp.o"
 },
 {
   "directory": "/home/ti_ti_/workspace/my_torch/build",
-  "command": "/usr/bin/c++  -I/home/ti_ti_/workspace/my_torch/include -g -O0 -std=gnu++17 -o CMakeFiles/my_torch.dir/src/tensor.cpp.o -c /home/ti_ti_/workspace/my_torch/src/tensor.cpp",
+  "command": "/usr/bin/c++  -I/home/ti_ti_/workspace/my_torch/include  -O2 -DNDEBUG -g -std=gnu++17 -o CMakeFiles/my_torch.dir/src/tensor.cpp.o -c /home/ti_ti_/workspace/my_torch/src/tensor.cpp",
   "file": "/home/ti_ti_/workspace/my_torch/src/tensor.cpp",
   "output": "CMakeFiles/my_torch.dir/src/tensor.cpp.o"
 },
 {
   "directory": "/home/ti_ti_/workspace/my_torch/build",
-  "command": "/usr/bin/c++  -I/home/ti_ti_/workspace/my_torch/include -g -O0 -std=gnu++17 -o CMakeFiles/my_torch.dir/src/utils.cpp.o -c /home/ti_ti_/workspace/my_torch/src/utils.cpp",
+  "command": "/usr/bin/c++  -I/home/ti_ti_/workspace/my_torch/include  -O2 -DNDEBUG -g -std=gnu++17 -o CMakeFiles/my_torch.dir/src/utils.cpp.o -c /home/ti_ti_/workspace/my_torch/src/utils.cpp",
   "file": "/home/ti_ti_/workspace/my_torch/src/utils.cpp",
   "output": "CMakeFiles/my_torch.dir/src/utils.cpp.o"
 }
