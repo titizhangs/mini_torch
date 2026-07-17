@@ -73,7 +73,7 @@ const float* Tensor::data() const {
     return impl_->data_.data();
 }
 
-float* Tensor::mutable_data() {
+float* Tensor::mutable_data()  const{
     return impl_->data_.data();
 }
 

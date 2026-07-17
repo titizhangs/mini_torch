@@ -56,7 +56,7 @@ int main() {
 
     SGD optimizer(all_params, 0.01f);
     // ===================== 3. 训练 =====================
-    const int epochs = 15;
+    const int epochs = 30;
     const int batch_size = 8;
     int total_batches = train_num / batch_size;
 
@@ -106,7 +106,7 @@ int main() {
 
     // ===================== 4. 可视化测试：直观查看预测效果 =====================
     printf("\n===== Test set prediction demo =====\n");
-    for (int i = 0; i < 5; ++i) { // 展示5张测试图
+    for (int i = 0; i < 15; ++i) { // 展示5张测试图
         printf("\n--- Test sample %d ---\n", i);
         print_image_ascii(test_images, i); // 打印字符画图像
 

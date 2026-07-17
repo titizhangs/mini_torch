@@ -33,7 +33,7 @@ public:
     
     // ========== 数据读写接口 ==========
     const float* data() const;       // 只读数据指针
-    float* mutable_data();           // 可写数据指针
+    float* mutable_data() const;           // 可写数据指针
     const float* grad() const;       // 只读梯度指针
     float* mutable_grad() const;           // 可写梯度指针
 
@@ -61,6 +61,7 @@ public:
         return tensor.impl_;
     }
 
+private:
     // 私有辅助函数：声明在头文件，实现在cpp
     void set_backward_impl(BackwardFn fn, std::vector<NodePtr> inputs);
 };
