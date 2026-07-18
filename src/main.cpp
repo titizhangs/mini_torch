@@ -64,6 +64,9 @@ int main() {
     for (int epoch = 1; epoch <= epochs; ++epoch) {
         float total_loss = 0.0f;
 
+        //打印参数值
+        // optimizer.show_params(); 
+
         for (int batch = 0; batch < total_batches; ++batch) {
             int start = batch * batch_size;
             int end = start + batch_size;

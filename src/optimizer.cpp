@@ -1,6 +1,7 @@
 #include "optimizer.h"
 #include <algorithm>
-
+#include <cstdio>
+#include <iostream>
 namespace simpledl {
 
 SGD::SGD(std::vector<Tensor> params, float lr)
@@ -22,5 +23,15 @@ void SGD::step() {
         }
     }
 }
-
+void SGD::show_params(){
+    for (auto& param : params_) {
+        float* data = param.mutable_data();
+        const float* grad = param.grad();
+        size_t n = param.numel();
+        for (size_t i = 0; i < n; ++i) {
+            printf("%f;",data[i]);
+        }
+        std::cout<<std::endl<<"=============="<<std::endl;
+    }
+}
 }  // namespace simpledl

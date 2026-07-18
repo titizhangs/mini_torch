@@ -1,3 +1,0 @@
-/home/ti_ti_/workspace/my_torch/build/CMakeFiles/my_torch.dir
-/home/ti_ti_/workspace/my_torch/build/CMakeFiles/edit_cache.dir
-/home/ti_ti_/workspace/my_torch/build/CMakeFiles/rebuild_cache.dir

@@ -64,8 +64,8 @@ Tensor mul(const Tensor& a, const Tensor& b) {
         out.set_backward_fn([a_req_grad,b_req_grad,a_numel=a.numel(),b_numel=b.numel()](const float* out_grad, size_t out_numel, const std::vector<Tensor::NodePtr>& out_inputs) {
             Tensor::NodePtr a=out_inputs[0];
             Tensor::NodePtr b=out_inputs[1];
-            const float* a_data = Tensor::mutable_data(a);
-            const float* b_data = Tensor::mutable_data(b);
+            const float* a_data = Tensor::data(a);
+            const float* b_data = Tensor::data(b);
             if (a_req_grad) {
                 float* a_grad = Tensor::mutable_grad(a);
                 for (size_t i = 0; i < a_numel; ++i) {
@@ -164,7 +164,7 @@ Tensor matmul(const Tensor& x, const Tensor& weight) {
             Tensor::NodePtr weight=out_inputs[1];
             if (x_req_grad) {
                 float* x_grad = Tensor::mutable_grad(x);
-                const float* weight_data= Tensor::mutable_data(weight);
+                const float* weight_data= Tensor::data(weight);
                 // dX = dY @ W^T
                 for (int i = 0; i < M; ++i) {
                     for (int j = 0; j < N; ++j) {
@@ -178,7 +178,7 @@ Tensor matmul(const Tensor& x, const Tensor& weight) {
 
             if (weight_req_grad) {
                 float* w_grad = Tensor::mutable_grad(weight);
-                const float* x_data= Tensor::mutable_data(x);
+                const float* x_data= Tensor::data(x);
                 // dW = X^T @ dY
                 for (int k = 0; k < K; ++k) {
                     for (int j = 0; j < N; ++j) {
@@ -261,7 +261,7 @@ Tensor relu(const Tensor& x) {
     if (out.requires_grad()) {
         out.set_backward_fn([](const float* out_grad, size_t out_numel, const std::vector<Tensor::NodePtr>& out_inputs) {
             Tensor::NodePtr x=out_inputs[0];
-            const float* x_data = Tensor::mutable_data(x);
+            const float* x_data = Tensor::data(x);
             float* x_grad = Tensor::mutable_grad(x);
 
             for (size_t i = 0; i < out_numel; ++i) {
@@ -354,23 +354,6 @@ Tensor conv2d(const Tensor& input, const Tensor& weight, const Tensor& bias,
         out.set_backward_fn([bias_req_grad=bias.requires_grad(),weight_req_grad=weight.requires_grad(),input_req_grad=input.requires_grad(),
             stride, padding,N,C_in,H_in,W_in,C_out,K_h,K_w,H_out,W_out,in_hw,in_chw,w_hw,w_chw,out_hw,out_chw]
             (const float* out_grad, size_t out_numel, const std::vector<Tensor::NodePtr>& out_inputs) {
-            // int N  = static_cast<int>(input.shape()[0]);
-            // int C_in  = static_cast<int>(input.shape()[1]);
-            // int H_in  = static_cast<int>(input.shape()[2]);
-            // int W_in  = static_cast<int>(input.shape()[3]);
-            // int C_out = static_cast<int>(weight.shape()[0]);
-            // int K_h   = static_cast<int>(weight.shape()[2]);
-            // int K_w   = static_cast<int>(weight.shape()[3]);
-            // int H_out = static_cast<int>(out.shape()[2]);
-            // int W_out = static_cast<int>(out.shape()[3]);
-
-            // int in_hw  = H_in * W_in;
-            // int in_chw = C_in * in_hw;
-            // int w_hw   = K_h * K_w;
-            // int w_chw  = C_in * w_hw;
-            // int out_hw = H_out * W_out;
-            // int out_chw = C_out * out_hw;
-
             Tensor::NodePtr input=out_inputs[0];
             Tensor::NodePtr weight=out_inputs[1];
             Tensor::NodePtr bias=out_inputs[2];
@@ -394,7 +377,7 @@ Tensor conv2d(const Tensor& input, const Tensor& weight, const Tensor& bias,
 
             // 2. 权重梯度：输入与输出梯度做互相关
             if (weight_req_grad) {
-                const float* in_data = Tensor::mutable_data(input);
+                const float* in_data = Tensor::data(input);
                 float* w_grad = Tensor::mutable_grad(weight);
                 for (int oc = 0; oc < C_out; ++oc) {
                     for (int ic = 0; ic < C_in; ++ic) {
@@ -424,7 +407,7 @@ Tensor conv2d(const Tensor& input, const Tensor& weight, const Tensor& bias,
 
             // 3. 输入梯度：输出梯度与翻转卷积核做转置卷积
             if (input_req_grad) {
-                const float* w_data = Tensor::mutable_data(weight);
+                const float* w_data = Tensor::data(weight);
                 float* in_grad = Tensor::mutable_grad(input);
                 for (int n = 0; n < N; ++n) {
                     for (int oc = 0; oc < C_out; ++oc) {

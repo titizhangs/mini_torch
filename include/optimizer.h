@@ -11,7 +11,7 @@ public:
 
     void zero_grad();  // 清空所有参数梯度
     void step();       // 执行一步参数更新
-
+    void show_params(); //打印所有参数
 private:
     std::vector<Tensor> params_;
     float lr_;

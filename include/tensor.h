@@ -6,6 +6,12 @@
 
 namespace simpledl {
 
+// 设备类型，后续算子分发、数据传输都以此为准
+enum class Device {
+    kCPU = 0,
+    kCUDA = 1,
+};
+
 // 轻量级张量句柄：PIMPL 架构，外部仅见接口，内部实现完全隐藏
 class Tensor {
 private:
@@ -13,11 +19,17 @@ private:
     using BackwardFn = std::function<void(const float* out_grad, size_t out_numel, std::vector<std::shared_ptr<Impl>> out_inputs)>;
     std::shared_ptr<Impl> impl_;
 public:
+    // 获取当前张量所在设备
+    Device device() const;
+    // 切换设备，返回新的张量（原张量不变，符合值语义）
+    // 若目标设备与当前一致，直接返回深拷贝
+    Tensor to(Device target) const;
+
     // ========== 新增：公有节点指针类型 + 静态访问接口 ==========
     // 对外暴露"节点指针"类型名，但Impl本身依然是私有、不可见的
     using NodePtr = std::shared_ptr<Impl>;
     // 构造：指定形状 + 是否需要梯度
-    explicit Tensor(const std::vector<int64_t>& shape, bool requires_grad = false);
+    explicit Tensor(const std::vector<int64_t>& shape, bool requires_grad = false, Device device=Device::kCPU);
 
     // 默认拷贝/移动语义：句柄轻量拷贝，共享底层实现
     Tensor(const Tensor&) = default;
@@ -56,7 +68,7 @@ public:
     void backward();
 
     static float* mutable_grad(NodePtr nodeptr);
-    static const float* mutable_data(NodePtr nodeptr);
+    static const float* data(NodePtr nodeptr);
     static NodePtr get_impl(const Tensor& tensor){
         return tensor.impl_;
     }
@@ -64,6 +76,8 @@ public:
 private:
     // 私有辅助函数：声明在头文件，实现在cpp
     void set_backward_impl(BackwardFn fn, std::vector<NodePtr> inputs);
+    // 私有静态辅助函数，仅内部使用，对外完全不可见
+    static float* ensure_grad_allocated(NodePtr impl);
 };
 
 }  // namespace simpledl
