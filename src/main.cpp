@@ -8,6 +8,17 @@
 #include "utils.h"
 #include <unistd.h>
 #include <cstdio>
+#include <stdexcept>
+// CUDA 调用统一错误检查宏，必加，否则显存越界/启动失败会静默出错
+#define CHECK_CUDA(call)                                 \
+    do {                                                 \
+        cudaError_t err = call;                          \
+        if (err != cudaSuccess) {                        \
+            throw std::runtime_error(                    \
+                "CUDA Error: " + std::string(cudaGetErrorString(err)) \
+            );                                           \
+        }                                                \
+    } while(0)
 
 using namespace simpledl;
 
@@ -56,7 +67,7 @@ int main() {
 
     SGD optimizer(all_params, 0.01f);
     // ===================== 3. 训练 =====================
-    const int epochs = 30;
+    const int epochs = 10;
     const int batch_size = 8;
     int total_batches = train_num / batch_size;
 
@@ -74,13 +85,24 @@ int main() {
             // 切片取batch数据（简化版：直接构造batch张量）
             Tensor batch_img({batch_size, 1, 28, 28}, false);
             Tensor batch_label({batch_size, 10}, false);
-            std::copy(train_images.data() + start * 28 * 28,
-                      train_images.data() + end * 28 * 28,
-                      batch_img.mutable_data());
-            std::copy(train_labels.data() + start * 10,
-                      train_labels.data() + end * 10,
-                      batch_label.mutable_data());
 
+            const float* images_s_ptr=train_images.data() + start * 28 * 28;
+            const float* images_e_ptr=train_images.data() + end * 28 * 28;
+            const float* labels_s_ptr=train_labels.data() + start * 10;
+            const float* labels_e_ptr=train_labels.data() + end * 10;
+            if(batch_img.device()==Device::kCPU){
+            std::copy(images_s_ptr,
+                      images_e_ptr,
+                      batch_img.mutable_data());
+            std::copy(labels_s_ptr,
+                      labels_e_ptr,
+                      batch_label.mutable_data());
+            }else{
+                CHECK_CUDA(cudaMemcpy(batch_img.mutable_data(), images_s_ptr,
+                 (images_e_ptr-images_s_ptr)*sizeof(float), cudaMemcpyDeviceToDevice));
+                CHECK_CUDA(cudaMemcpy(batch_label.mutable_data(), train_labels.data() + start * 10,
+                 (labels_e_ptr-labels_s_ptr)*sizeof(float), cudaMemcpyDeviceToDevice));
+            }
             // 前向传播
             // 前向传播：全卷积下采样，无池化
             Tensor c1 = conv1.forward(batch_img);
@@ -95,8 +117,14 @@ int main() {
             Tensor pred = fc.forward(flat);
 
             Tensor loss = mse_loss(pred, batch_label);
-            total_loss += loss.data()[0];
-
+            float tmp_loss[1];
+            if(loss.device()==Device::kCPU){
+                tmp_loss[0]=loss.data()[0];
+            }else{
+                CHECK_CUDA(cudaMemcpy(tmp_loss, loss.data(),
+                 sizeof(float), cudaMemcpyDeviceToHost));
+            }
+            total_loss += tmp_loss[0];
             // 反向更新
             optimizer.zero_grad();
             loss.backward();
@@ -115,10 +143,15 @@ int main() {
 
         // 单样本前向预测
         Tensor single_img({1, 1, 28, 28}, false);
+
+        if(single_img.device()==Device::kCPU){
         std::copy(test_images.data() + i * 28 * 28,
                   test_images.data() + (i+1) * 28 * 28,
                   single_img.mutable_data());
-
+        }else{
+            CHECK_CUDA(cudaMemcpy(single_img.mutable_data(), test_images.data() + i * 28 * 28,
+                28*28*sizeof(float), cudaMemcpyDeviceToDevice));
+        }
         Tensor c1 = conv1.forward(single_img);
         Tensor a1 = relu(c1);
         Tensor c2 = conv2.forward(a1);

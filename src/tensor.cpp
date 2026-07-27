@@ -4,6 +4,7 @@
 #include <stdexcept>
 #include <cstring>
 #include <iostream>
+#include <iomanip>
 
 // CUDA 调用统一错误检查宏，必加，否则显存越界/启动失败会静默出错
 #define CHECK_CUDA(call)                                 \
@@ -276,6 +277,13 @@ void Tensor::backward() {
             node->backward_fn_(node->grad_ptr_,node->numel(),node->inputs_);
 
         }
+        // std::vector<float> dst(node->numel_);
+        // copy_data(dst.data(),Device::kCPU,node->grad_ptr_,node->device_,node->numel_);
+        // std::cout<<&(*it) <<" 梯度：\n";
+        // std::cout << std::fixed << std::setprecision(6);
+        // for(int i=0;i<node->numel_;i++){
+        //     std::cout<<dst[i]<<"\n";
+        // }
     }
 }
 // 确保 Impl 的梯度内存已分配，返回可写指针
@@ -299,4 +307,14 @@ float* Tensor::mutable_grad(NodePtr nodeptr){
 const float* Tensor::data(NodePtr nodeptr){
     return nodeptr->data_ptr_;
 }
+
+
+void Tensor::fill_grad_ptr(float value){
+    fill_data(mutable_grad(), impl_->device_, value, impl_->numel_);
+}
+
+void Tensor::fill_data_ptr(float value){
+    fill_data(impl_->data_ptr_, impl_->device_, value, impl_->numel_);
+}
+
 }  // namespace simpledl

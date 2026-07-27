@@ -1,0 +1,29 @@
+{
+
+"version": "0.2.0",
+
+"configurations": [
+
+{
+
+"name": "CUDA Debug",
+
+"type": "cuda-gdb",
+
+"request": "launch",
+
+"program": "${workspaceFolder}/build/my_torch", 
+
+"args": [],
+
+"cwd": "${workspaceFolder}",
+
+"cudaPath": "/usr/local/cuda-12.3", 
+
+"stopAtEntry": false
+
+}
+
+]
+
+}

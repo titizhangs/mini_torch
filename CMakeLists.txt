@@ -51,3 +51,7 @@ target_link_libraries(my_torch PRIVATE cudart)
 # 兼容当前写法：指定tensor.cpp用CUDA编译器编译
 # 后续若将GPU算子拆分到独立的.cu文件中，可直接删除此行
 set_source_files_properties(src/tensor.cpp PROPERTIES LANGUAGE CUDA)
+set_source_files_properties(src/operators.cpp PROPERTIES LANGUAGE CUDA)
+set_source_files_properties(src/utils.cpp PROPERTIES LANGUAGE CUDA)
+set_source_files_properties(src/main.cpp PROPERTIES LANGUAGE CUDA)
+set_source_files_properties(src/operators.cu PROPERTIES LANGUAGE CUDA)

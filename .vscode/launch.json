@@ -1,6 +1,17 @@
 {
     "version": "0.2.0",
     "configurations": [
+
+        // {
+        //     "name": "CUDA C++: Launch",
+        //     "type": "cuda-gdb",
+        //     "request": "launch",
+        //     "program": "${workspaceFolder}/build/my_torch",
+        //     "cwd": "${workspaceFolder}",
+        //     "args": [],
+        //     "stopAtEntry": false,
+        //     "debuggerPath": "/usr/local/cuda-12.3/bin/cuda-gdb"
+        // },
         {
             "name": "Debug my_torch (GDB)",
             "type": "cppdbg",

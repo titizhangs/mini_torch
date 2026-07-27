@@ -29,7 +29,7 @@ public:
     // 对外暴露"节点指针"类型名，但Impl本身依然是私有、不可见的
     using NodePtr = std::shared_ptr<Impl>;
     // 构造：指定形状 + 是否需要梯度
-    explicit Tensor(const std::vector<int64_t>& shape, bool requires_grad = false, Device device=Device::kCPU);
+    explicit Tensor(const std::vector<int64_t>& shape, bool requires_grad = false, Device device=Device::kCUDA);
 
     // 默认拷贝/移动语义：句柄轻量拷贝，共享底层实现
     Tensor(const Tensor&) = default;
@@ -48,6 +48,8 @@ public:
     float* mutable_data() const;           // 可写数据指针
     const float* grad() const;       // 只读梯度指针
     float* mutable_grad() const;           // 可写梯度指针
+    void fill_grad_ptr(float value);    //填充梯度
+    void fill_data_ptr(float value);    //填充data
 
     // ========== 计算图构建接口 ==========
     // 设置反向函数与依赖输入，自动强引用持有所有输入节点
